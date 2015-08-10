@@ -1,0 +1,17 @@
+language: python
+sudo: required
+python:
+- '2.7'
+install:
+- pip install pep8 pyflakes Django
+script:
+- make test
+after_success:
+- coveralls
+deploy:
+  provider: heroku
+  api_key:
+    secure: sgwyrtYCYqsRfvNwvdINJuY+NscLFzc3TiPBN/3W7xRX56ElNfsbNFDm7SEYwWEdZZ3t0UCbxM0T5bpSchMa6edPgM7PY7S58xvn+QUK4Y9p1aYX+c7eT3+SEISR4SYyScV/u2SEBG9WPFcS/AZepiuOkhsgdzgya+INWco69stBpBjZYnYY5KbfRDlQwuIWWJSxB12wA964glY7izlFM2K1wg48Dbc2iRFupU3eYCuFmaW1K2MTPoVRkF79VGhl6vHrfMyjkODVI9jCK1dOkgFVOLrAjn9dgb9LYWU5SXAsZ+aryhVpyv5xS/GnYZlYj9XPKJRJWVO1VLGyeCdRhxdwK9o3AK0/j0ETU0Tz42BSzziR+CJQtPi4L1JQtaI0HgB1gXc2jLnxRjG4TuIb7IjR+F1C0Dlw/o7OhMDA/SU7YzyCmE5OXY1dZrUb3SnHyHICPyxRQ6Du8T7gZrsIeghC7PQJk0WNsl2YLGQT7O9ccwUhJi59WRPpur3zgbCGeh6GMrla49rL78sPJtQFLTXR2SkFiNFQ/gY+QBrVs0IrIOtWvcPJzkTTr5rv68BXWr4xC3V0cFjLnd9BTnh+pBiaVsMzXvYwMjuZ6uAFCyID5urdIasQ4XK/evUloZe7yWIVUVUXi3ihDgJ/Fwg7zWGcQKKQhZkaw80Qtb+UGg8=
+  app: secure-tor-8527
+  on:
+    repo: ddriddle/python-getting-started
